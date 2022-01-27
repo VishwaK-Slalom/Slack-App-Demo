@@ -5,4 +5,4 @@ Make sure to add app to birthday channel for testing birthday flow.
 
 Run Command: npm run install to install all dependencies.
 
-Run Commmand:  nodemon run src/app/app.js to run the application.
+Run Command:  nodemon run src/app/app.js to run the application.
