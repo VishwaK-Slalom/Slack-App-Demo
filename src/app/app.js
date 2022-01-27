@@ -13,9 +13,24 @@ const app = new App({
 
 
 // Listen to the app_home_opened event, and when received, respond with a message including the user being messaged
-app.event('app_home_opened', ({ event, say }) => {
+app.event('app_home_opened', ({ event, say, client }) => {
   if(event.tab == 'messages'){
     say(`Hello <@${event.user}>!`)
+  }else if(event.tab == 'home'){
+    client.views.publish({"user_id": event.user,
+    "view" : {
+         "type":"home",
+         "blocks":[
+            {
+               "type":"section",
+               "text":{
+                  "type":"mrkdwn",
+                  "text":"Howdy!\n\nAsk me about *weather* with */weather*. \n\n Ask me about birthdays by messaging *birthday* in #birthdays channel. \n\n Interact with messages using shortcut *Ask me* ."
+               }
+            }
+         ]
+      }
+    });
   }
     
 });
