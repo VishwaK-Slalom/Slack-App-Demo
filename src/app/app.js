@@ -274,7 +274,7 @@ async function requestBirthday () {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: 'When is your birthday, channel creator?'
+              text: 'Hi, When is your birthday?'
             },
             accessory: {
               type: 'datepicker',
