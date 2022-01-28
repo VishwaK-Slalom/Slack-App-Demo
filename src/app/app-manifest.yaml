@@ -1,0 +1,67 @@
+display_information:
+  name: Slack App Demo
+  description: Ask me about weather and birthdays
+  background_color: "#2f2f30"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: Weather-Birthdays
+    always_online: true
+  shortcuts:
+    - name: Ask me
+      type: message
+      callback_id: devtestid
+      description: Acknowledges request
+    - name: Demo Shortcut Global
+      type: global
+      callback_id: Devtestglobal
+      description: Demo Shortcut Global
+  slash_commands:
+    - command: /weather
+      description: Get weather report by zip code
+      usage_hint: How is Weather today ?
+      should_escape: false
+  workflow_steps:
+    - name: Create Case
+      callback_id: newCase1
+  unfurl_domains:
+    - slalom.com
+oauth_config:
+  scopes:
+    user:
+      - channels:read
+      - chat:write
+      - channels:write
+    bot:
+      - channels:history
+      - channels:read
+      - chat:write
+      - chat:write.customize
+      - commands
+      - groups:history
+      - im:history
+      - im:write
+      - incoming-webhook
+      - links:read
+      - links:write
+      - mpim:history
+      - workflow.steps:execute
+      - im:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_home_opened
+      - link_shared
+      - message.channels
+      - message.groups
+      - message.im
+      - message.mpim
+      - workflow_step_execute
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
